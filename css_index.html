@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
+<title>Welcome to Quizlet</title>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
+<title>Welcome to Quizlet</title>
+	<link rel='stylesheet' type='text/css' href='css/style.css' />
+	
+	
+<!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+</script>
+    <![endif]-->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>    
+<script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script>    
+<script type='text/javascript' src='js/dynamicpage.js'></script>
+<style type="text/css">
+/*This is for sidebar*/
+body, html {
+		  background:url('images/bg3.jpg');
+          height: 100%;
+          margin: 0;
+          overflow:auto;
+          font-family: helvetica;
+          font-weight: 100;
+      }
+	  h1 {
+  color: #ff4411; 
+  font-size: 30px; 
+  font-family: 'Signika', sans-serif; 
+  padding-bottom: 5px;  
+}
+p { color: #7a7c7f; font-size: 18px; font-family: "Libre Baskerville", serif; line-height: 45px; text-align: center; text-shadow: 0 1px 1px #fff; padding-top: 5px; }
+
+p.byline { font-style: italic; color: #B6B6B6; font-size: 24px; margin-top: 20px; text-align: center; text-shadow: 0 1px 1px #fff; }
+a { color: #ff4411; transition: .5s; -moz-transition: .5s; -webkit-transition: .5s; -o-transition: .5s; }
+
+a:hover { color: #a03c21 }
+
+h2{
+color: #b48608; font-family: 'Droid serif', serif; font-size: 36px; font-weight: 400; font-style: italic; line-height: 44px; margin: 0 0 12px; text-align: center;
+}
+h3{
+color: #a7e8f8; font-family: 'Julius Sans One', sans-serif; font-size: 22px; font-weight: bold; line-height: 32px; margin: 0 0 24px; text-shadow: 1px 1px 1px #082b34;
+}
+      .container {
+          position: relative;
+          height: 100%;
+          width: 100%;
+          left: 0;
+          -webkit-transition:  left 0.4s ease-in-out;
+          -moz-transition:  left 0.4s ease-in-out;
+          -ms-transition:  left 0.4s ease-in-out;
+          -o-transition:  left 0.4s ease-in-out;
+          transition:  left 0.4s ease-in-out;
+      }
+      .container.open-sidebar {
+          left: 240px;
+      }
+      
+      .swipe-area {
+          position: absolute;
+          width: 50px;
+          left: 0;
+      top: 0;
+          height: 100%;
+		  background:url('images/bg3.jpg');
+          z-index: 0;
+      }
+      #sidebar {
+          background: #DF314D;
+          position: absolute;
+          width: 240px;
+          height: 100%;
+          left: -240px;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+      }
+      #sidebar ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+      }
+      #sidebar ul li {
+          margin: 0;
+      }
+      #sidebar ul li a {
+          padding: 15px 20px;
+          font-size: 16px;
+          font-weight: 100;
+          color: white;
+          text-decoration: none;
+          display: block;
+          border-bottom: 1px solid #C9223D;
+          -webkit-transition:  background 0.3s ease-in-out;
+          -moz-transition:  background 0.3s ease-in-out;
+          -ms-transition:  background 0.3s ease-in-out;
+          -o-transition:  background 0.3s ease-in-out;
+          transition:  background 0.3s ease-in-out;
+      }
+      #sidebar ul li:hover a {
+          background: #C9223D;
+      }
+      .main-content {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          position: relative;
+      }
+      .main-content .content{
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+      padding-left: 60px;
+      width: 100%;
+      }
+      .main-content .content h1{
+          font-weight: 100;
+      }
+      .main-content .content p{
+          width: 100%;
+          line-height: 160%;
+      }
+      .main-content #sidebar-toggle {
+          background: #DF314D;
+          border-radius: 3px;
+          display: block;
+          position: relative;
+          padding: 10px 7px;
+          float: left;
+      }
+      .main-content #sidebar-toggle .bar{
+           display: block;
+          width: 18px;
+          margin-bottom: 3px;
+          height: 2px;
+          background-color: #fff;
+          border-radius: 1px;   
+      }
+      .main-content #sidebar-toggle .bar:last-child{
+           margin-bottom: 0;   
+      }
+	  
+/*This is for dropdown menu*/
+.topsection
+{
+width:100%;
+overflow:auto;
+padding:0px 0px 0px 450px;
+}
+.topsection div
+{
+padding-top:4px;
+letter-spacing:4px;
+font-size:14px;
+font-family:Arial;
+}
+h3
+{
+padding-top:4px;
+letter-spacing:4px;
+font-size:14px;
+font-family:Arial;
+}
+.clearfix:after {
+    display:block;
+    clear:both;
+}
+ 
+/*----- Menu Outline -----*/
+.menu-wrap {
+    width:100%;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.2);
+    background:#3e3436;
+}
+ 
+.menu {
+    width:1000px;
+    margin:0px auto;
+}
+ 
+.menu li {
+    margin:0px;
+    list-style:none;
+    font-family:'Ek Mukta';
+}
+ 
+.menu a {
+    transition:all linear 0.15s;
+    color:#E65C8A;
+}
+ 
+.menu li:hover > a, .menu .current-item > a {
+    text-decoration:none;
+    color:#be5b70;
+}
+ 
+.menu .arrow {
+    font-size:11px;
+    line-height:0%;
+}
+ 
+/*----- Top Level -----*/
+.menu > ul > li {
+    float:left;
+    display:inline-block;
+    position:relative;
+    font-size:19px;
+}
+ 
+.menu > ul > li > a {
+    padding:10px 40px;
+    display:inline-block;
+    text-shadow:0px 1px 0px rgba(0,0,0,0.4);
+}
+ 
+.menu > ul > li:hover > a, .menu > ul > .current-item > a {
+    background:#2e2728;
+}
+ 
+/*----- Bottom Level -----*/
+.menu li:hover .sub-menu {
+    z-index:1;
+    opacity:1;
+}
+ 
+.sub-menu {
+    width:160%;
+    padding:5px 0px;
+    position:absolute;
+    top:100%;
+    left:0px;
+    z-index:-1;
+    opacity:0;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background:#2e2728;
+}
+ 
+.sub-menu li {
+    display:block;
+    font-size:16px;
+}
+ 
+.sub-menu li a {
+    padding:10px 30px;
+    display:block;
+}
+ 
+.sub-menu li a:hover, .sub-menu .current-item a {
+    background:#3e3436;
+}
+/*This code is for footer of the page*/
+* {
+	margin: 0;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+	margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+	height: 142px; 
+}
+.site-footer {
+  background: orange;
+}
+</style>
+<script type="text/javascript">
+      $(window).load(function(){
+        $("[data-toggle]").click(function() {
+          var toggle_el = $(this).data("toggle");
+          $(toggle_el).toggleClass("open-sidebar");
+        });
+         $(".swipe-area").swipe({
+              swipeStatus:function(event, phase, direction, distance, duration, fingers)
+                  {
+                      if (phase=="move" && direction =="right") {
+                           $(".container").addClass("open-sidebar");
+                           return false;
+                      }
+                      if (phase=="move" && direction =="left") {
+                           $(".container").removeClass("open-sidebar");
+                           return false;
+                      }
+                  }
+          }); 
+      });
+      
+    </script>
+</head>
+<body>
+<div class="topsection">
+<a href="index.html">
+<img src="images/logo.jpg" alt="Quizlet.com">
+</a>
+<h3>LEARN THE BASICS OF LANGUAGES</h3>
+</div>
+
+
+<div class="container">
+      <div id="sidebar">
+          <ul>
+              <li><a href="index.html">Home</a></li>
+			  <li><a href="wdc_index.html">Web Design</a></li>
+              <li><a href="sdc_index.html">Software Development</a></li>
+              <li><a href="nc_index.html">Networking</a></li>
+				  <li><a href="html_index.html">HTML</a></li>
+				  <li><a href="js_index.html">JAVASCRIPT</a></li>
+                  <li><a href="css_index.html">CSS</a></li>
+				  <li><a href="quiz_index.html">QUIZ</a></li>
+          </ul>
+      </div>
+      <div class="main-content">
+          <div class="swipe-area"></div>
+          <a href="#" data-toggle=".container" id="sidebar-toggle">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </a>
+          <div class="content">
+              <div id="page-wrap">
+
+        
+<header>
+		  
+<h1>CSS COURSE</h1>
+		
+		  
+<nav>
+		      
+<ul class="group">
+		          
+				<li><a href="css_index.html">Introduction</a></li>
+		          <li><a href="css/css_videos.html">Videos</a></li>
+		          <li><a href="css/css_docs.html">Documents</a></li>
+		      
+</ul>
+		  </nav>
+		
+</header>
+		
+		
+<section id="main-content">
+		
+<div id="guts">
+		
+		  
+<h2>Introduction</h2>
+		
+	<p>Cascading Style Sheets (CSS) is a style sheet language used for describing the look and formatting of a document written in a markup language. Although most often used to change the style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any kind of XML document, including plain XML, SVG and XUL. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications.</p>
+
+		<p>CSS is designed primarily to enable the separation of document content from document presentation, including elements such as the layout, colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content, such as semantically insignificant tables that were widely used to format pages before consistent CSS rendering was available in all major browsers. CSS makes it possible to separate presentation instructions from the HTML content in a separate file or style section of the HTML file. For each matching HTML element, it provides a list of formatting instructions. For example, a CSS rule might specify that "all heading 1 elements should be bold", leaving pure semantic HTML markup that asserts "this text is a level 1 heading" without formatting code such as a <bold> tag indicating how such text should be displayed.</p>
+
+		<p>This separation of formatting and content makes it possible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, by voice (when read out by a speech-based browser or screen reader) and on Braille-based, tactile devices. It can also be used to display the web page differently depending on the screen size or device on which it is being viewed. Although the author of a web page typically links to a CSS file within the markup file, readers can specify a different style sheet, such as a CSS file stored on their own computer, to override the one the author has specified. If the author or the reader did not link the document to a style sheet, the default style of the browser will be applied. Another advantage of CSS is that aesthetic changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in one file, rather than by a laborious (and thus expensive) process of crawling over every document line by line, changing markup.</p>
+
+		<p>The CSS specification describes a priority scheme to determine which style rules apply if more than one rule matches against a particular element. In this so-called cascade, priorities (or weights) are calculated and assigned to rules, so that the results are predictable.</p>
+
+		<p>The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS validation service for CSS documents.</p>
+
+		
+</div>
+		
+</section>
+		
+	
+</div>
+	  <div class="page-wrap">
+	  </div>
+	  <footer class="site-footer">
+		<a href="http://twitter.com/share" data-count="vertical" data-via="YourSite"><img border="0" alt="Twitter" src="images/twiiter1.png" width="30" height="30"></a>
+		<a href="http://facebook.com/share" data-count="vertical" data-via="YourSite"><img border="0" alt="Twitter" src="images/fb1.jpg" width="30" height="30"></a>
+		<a href="http://googleplus.com/share" data-count="vertical" data-via="YourSite"><img border="0" alt="Twitter" src="images/gp1.jpg" width="30" height="30"></a>
+	  </footer> 
+          </div>
+      </div>
+    </div>
+
+</body>
+</html>

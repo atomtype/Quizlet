@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	
+	<title>QUIZ</title>
+	
+	<link rel='stylesheet' type='text/css' href='css/style.css' />
+	
+	<!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script type='text/javascript' src='js/dynamicpage.js'></script>
+	<!--This files for quiz
+	-->
+	<script type="text/javascript" src="quiz.js"></script>
+	<script type="text/javascript" src="questions.js"></script>
+	<script type="text/javascript" src="test.js"></script>
+	<link rel="stylesheet" href="quiz.css" />
+	</head>
+
+<body>
+
+    <?php include('../header.php'); ?>
+
+	<div id="page-wrap">
+
+        <header>
+		  <h1>SOFTWARE DEVELOPMENT QUIZ</h1>
+		
+		  <nav>
+		      <ul class="group">
+		          <li><a href="quiz_index.html">Web Design Quiz</a></li>
+		          <li><a href="quiz1/quiz1.html">Software Development Quiz</a></li>
+		          <li><a href="quiz2/quiz2.html">Networking Quiz</a></li>
+		      </ul>
+		  </nav>
+		</header>
+		
+		<section id="main-content">
+		<div id="guts">
+		 <h2>Networking QUIZ</h2>
+		
+		<form name="submitquestions" action="index.html" method="get">
+<div id="headdiv" class="layout">
+<h1>
+NETWORKING QUIZ: 
+<script>
+document.writeln(quiz1.name)
+</script>
+</h1>
+</div>
+ 
+<div id="modulediv" class="layout" >
+<table align="center"><tr>
+<script>
+ 
+ 
+totalmodules = quiz1.total()
+for(i = 0;i < totalmodules;i++)
+{
+    currentmodule = quiz1.get(i)
+    document.writeln('<td class="module" cellspacing=0>')    
+    totalsets = currentmodule.total()
+    for(x=0;x<totalsets;x++)
+    {
+        currentset = currentmodule.get(x)
+        document.writeln('<a href="javascript:displayset('+ i +','+ x +')">'+ 
+             currentmodule.name +'(' + currentset.name + ')</a>|<br>')
+ 
+    }
+    document.writeln('</td>')
+}
+ 
+</script>
+</tr></table>
+</div>
+<div id="sectionheader" class="layout">
+<h3 id="hl"> </h3>
+</div>
+ 
+<div id="bodydiv" class="layout">
+</div>
+<div id="footer" class="layout">
+<input type="button" onclick="displayresults()" value="Submit" />
+</div>
+</form>	
+		
+</div>
+		
+</section>
+		
+	
+</div>
+		
+		</section>
+		<footer>
+		  &copy;2010 CSS-Tricks
+		</footer>
+			
+	</div>
+	
+	<?php include('../footer.php'); ?>
+
+</body>
+
+</html>

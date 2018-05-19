@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+    <title>Welcome to Quizlet</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
+    <link rel="stylesheet" type="text/css" href="css/my_style.css">
+</head>
+<body>
+<div class="topsection">
+  <div>
+    <a href="index.html">
+    <img src="images/logo.png" alt="Quizlet.com">
+    </a>
+    <h3>LEARN THE BASICS OF LANGUAGES</h3>
+  </div>
+</div>
+<div class="container">
+      <div id="sidebar">
+          <ul>
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="wdc_index.html">Web Design</a></li>
+              <li><a href="sdc_index.html">Software Development</a></li>
+              <li><a href="nc_index.html">Networking</a></li>
+              <li><a href="quiz_index.html">Quiz</a></li>
+			  <li><a href="about_us.html">About Us</a></li>
+          </ul>
+      </div>
+  <div class="main-content">
+          <div class="swipe-area"></div>
+          <a href="#" data-toggle=".container" id="sidebar-toggle">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </a>
+  <div class="content">
+    <div class="menu-wrap">
+      <nav class="menu">
+          <ul class="clearfix">
+              <li><a href="index.html">HOME</a></li>
+              <li>
+                  <a href="wdc_index.html">Web Design<span class="arrow">&#9660;</span></a>
+   
+                  <ul class="sub-menu">
+                      <li><a href="html_index.html">HTML</a></li>
+                      <li><a href="css_index.html">CSS</a></li>
+                      <li><a href="js_index.html">JAVASCRIPT</a></li>
+                     
+                  </ul>
+              </li>
+              <li><a href="sdc_index.html">Software Development<span class="arrow">&#9660;</span></a>
+        		    <ul class="sub-menu">
+        		    <li><a href="c_index.html">C</a></li>
+                    <li><a href="cpp_index.html">CPP</a></li>
+                    <li><a href="java_index.html">JAVA</a></li>
+          	    </ul>
+        	    </li>
+              <li><a href="nc_index.html">Networking<span class="arrow">&#9660;</span></a>
+        		    <ul class="sub-menu">
+        		        <li><a href="ccna_index.html">CCNA Security</a></li>
+                    <li><a href="ccnp_index.html">CCNP Rounting & Switching</a></li>
+          	    </ul>
+  	           </li>
+              <li><a href="quiz_index.html">QUIZ</a></li>
+  		      </ul>
+      </nav>
+	</div>
+		<br><br><br>
+	  <div class="gradientBoxesWithOuterShadows" align="center">
+			<h1>Web Design Courses</h1>
+			<br><p>In this course you will learn about the different web design courses and you can know about your language abilities by giving combine exam of all the courses.</p><br> 
+			<a href="html_index.html" class="w3-btn sectionbtn">LEARN HTML</a>
+			<a href="css_index.html" class="w3-btn sectionbtn">LEARN CSS</a>
+			<a href="js_index.html" class="w3-btn sectionbtn">LEARN JAVASCRIPT</a>
+	  </div>
+	  <div class="gradientBoxesWithOuterShadows" align="center">
+			<h1>Software Development Courses</h1>
+			<br><p>In this course you will learn about the different software design courses and you can know about your language abilities by giving combine exam of all the courses.</p><br> 
+			<a href="c_index.html" class="w3-btn sectionbtn">LEARN C</a>
+			<a href="cpp_index.html" class="w3-btn sectionbtn">LEARN CPP</a>
+			<a href="java_index.html" class="w3-btn sectionbtn">LEARN JAVA</a>
+	  </div>
+	   <div class="gradientBoxesWithOuterShadows" align="center">
+			<h1>Networking Courses</h1>
+			<br><p>In this course you will learn about the different Networking courses and you can know about your language abilities by giving combine exam of all the courses.</p><br> 
+			<a href="ccna_index.html" class="w3-btn sectionbtn">LEARN CCNA</a>
+			<a href="ccnp_index.html" class="w3-btn sectionbtn">LEARN CCNP</a>
+	  </div>
+  </div>
+</div>
+</div>
+<footer class="site-footer">
+  <a href="http://twitter.com/share" data-count="vertical" data-via="YourSite"><img border="0" alt="Twitter" src="images/twiiter1.png" height="30"></a>
+  <a href="http://facebook.com/share" data-count="vertical" data-via="YourSite"><img border="0" alt="Twitter" src="images/fb1.jpg" height="30"></a>
+  <a href="http://googleplus.com/share" data-count="vertical" data-via="YourSite"><img border="0" alt="Twitter" src="images/gp1.jpg" height="30"></a>
+</footer>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript">
+          $(window).load(function(){
+            $("[data-toggle]").click(function() {
+              var toggle_el = $(this).data("toggle");
+              $(toggle_el).toggleClass("open-sidebar");
+            });
+             $(".swipe-area").swipe({
+                  swipeStatus:function(event, phase, direction, distance, duration, fingers)
+                      {
+                          if (phase=="move" && direction =="right") {
+                               $(".container").addClass("open-sidebar");
+                               return false;
+                          }
+                          if (phase=="move" && direction =="left") {
+                               $(".container").removeClass("open-sidebar");
+                               return false;
+                          }
+                      }
+              }); 
+          });
+    </script>
+</body>
+</html>

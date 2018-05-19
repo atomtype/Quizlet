@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ek+Mukta">
+<title>Welcome to Quizlet</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+<style type="text/css">
+h1 {
+  color: #ff4411; 
+  font-size: 30px; 
+  font-family: 'Signika', sans-serif; 
+  padding-bottom: 5px;  
+}
+p { color: #7a7c7f; font-size: 18px; font-family: "Libre Baskerville", serif; line-height: 45px; text-align: center; text-shadow: 0 1px 1px #fff; padding-top: 5px; }
+
+p.byline { font-style: italic; color: #B6B6B6; font-size: 24px; margin-top: 20px; text-align: center; text-shadow: 0 1px 1px #fff; }
+a { color: #ff4411; transition: .5s; -moz-transition: .5s; -webkit-transition: .5s; -o-transition: .5s; }
+
+a:hover { color: #a03c21 }
+
+h2{
+color: #b48608; font-family: 'Droid serif', serif; font-size: 36px; font-weight: 400; font-style: italic; line-height: 44px; margin: 0 0 12px; text-align: center;
+}
+h3{
+color: #a7e8f8; font-family: 'Julius Sans One', sans-serif; font-size: 22px; font-weight: bold; line-height: 32px; margin: 0 0 24px; text-shadow: 1px 1px 1px #082b34;
+}
+.sectionbtn {
+    background-color: #555;
+    margin: 10px 5px 5px;
+}
+.w3-btn {
+    border: medium none;
+    display: inline-block;
+    outline: 0px none;
+    padding: 8px 16px;
+    vertical-align: middle;
+    text-decoration: none !important;
+    color: #FFF;
+    background-color: #4C4E4E;
+    text-align: center;
+    transition: all 0.2s ease-out 0s;
+    cursor: pointer;
+}
+/*This is for sidebar*/
+body, html {
+		  background:url('images/bg3.jpg');
+          height: 100%;
+          margin: 0;
+          overflow:auto;
+          font-family: helvetica;
+          font-weight: 100;
+      }
+      .container {
+          position: relative;
+          height: 100%;
+          width: 100%;
+          left: 0;
+          -webkit-transition:  left 0.4s ease-in-out;
+          -moz-transition:  left 0.4s ease-in-out;
+          -ms-transition:  left 0.4s ease-in-out;
+          -o-transition:  left 0.4s ease-in-out;
+          transition:  left 0.4s ease-in-out;
+      }
+      .container.open-sidebar {
+          left: 240px;
+      }
+      
+      .swipe-area {
+          position: absolute;
+          width: 50px;
+          left: 0;
+      top: 0;
+          height: 100%;
+          background:url('images/bg3.jpg');
+          z-index: 0;
+      }
+      #sidebar {
+          background: #DF314D;
+          position: absolute;
+          width: 240px;
+          height: 100%;
+          left: -240px;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+      }
+      #sidebar ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+      }
+      #sidebar ul li {
+          margin: 0;
+      }
+      #sidebar ul li a {
+          padding: 15px 20px;
+          font-size: 16px;
+          font-weight: 100;
+          color: white;
+          text-decoration: none;
+          display: block;
+          border-bottom: 1px solid #C9223D;
+          -webkit-transition:  background 0.3s ease-in-out;
+          -moz-transition:  background 0.3s ease-in-out;
+          -ms-transition:  background 0.3s ease-in-out;
+          -o-transition:  background 0.3s ease-in-out;
+          transition:  background 0.3s ease-in-out;
+      }
+      #sidebar ul li:hover a {
+          background: #C9223D;
+      }
+      .main-content {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          position: relative;
+      }
+      .main-content .content{
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+      padding-left: 60px;
+      width: 100%;
+      }
+      .main-content .content h1{
+          font-weight: 100;
+      }
+      .main-content .content p{
+          width: 100%;
+          line-height: 160%;
+      }
+      .main-content #sidebar-toggle {
+          background: #DF314D;
+          border-radius: 3px;
+          display: block;
+          position: relative;
+          padding: 10px 7px;
+          float: left;
+      }
+      .main-content #sidebar-toggle .bar{
+           display: block;
+          width: 18px;
+          margin-bottom: 3px;
+          height: 2px;
+          background-color: #fff;
+          border-radius: 1px;   
+      }
+      .main-content #sidebar-toggle .bar:last-child{
+           margin-bottom: 0;   
+      }
+	  
+/*This is for dropdown menu*/
+.topsection
+{
+width:100%;
+overflow:auto;
+padding:0px 0px 0px 450px;
+}
+.topsection div
+{
+padding-top:4px;
+letter-spacing:4px;
+font-size:14px;
+font-family:Arial;
+}
+h3
+{
+padding-top:4px;
+letter-spacing:4px;
+font-size:14px;
+font-family:Arial;
+}
+.clearfix:after {
+    display:block;
+    clear:both;
+}
+ 
+/*----- Menu Outline -----*/
+.menu-wrap {
+    width:100%;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.2);
+    background:#3e3436;
+}
+ 
+.menu {
+    width:1000px;
+    margin:0px auto;
+}
+ 
+.menu li {
+    margin:0px;
+    list-style:none;
+    font-family:'Ek Mukta';
+}
+ 
+.menu a {
+    transition:all linear 0.15s;
+    color:#E65C8A;
+}
+ 
+.menu li:hover > a, .menu .current-item > a {
+    text-decoration:none;
+    color:#be5b70;
+}
+ 
+.menu .arrow {
+    font-size:11px;
+    line-height:0%;
+}
+ 
+/*----- Top Level -----*/
+.menu > ul > li {
+    float:left;
+    display:inline-block;
+    position:relative;
+    font-size:19px;
+}
+ 
+.menu > ul > li > a {
+    padding:10px 40px;
+    display:inline-block;
+    text-shadow:0px 1px 0px rgba(0,0,0,0.4);
+}
+ 
+.menu > ul > li:hover > a, .menu > ul > .current-item > a {
+    background:#2e2728;
+}
+ 
+/*----- Bottom Level -----*/
+.menu li:hover .sub-menu {
+    z-index:1;
+    opacity:1;
+}
+ 
+.sub-menu {
+    width:160%;
+    padding:5px 0px;
+    position:absolute;
+    top:100%;
+    left:0px;
+    z-index:-1;
+    opacity:0;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background:#2e2728;
+}
+ 
+.sub-menu li {
+    display:block;
+    font-size:16px;
+}
+ 
+.sub-menu li a {
+    padding:10px 30px;
+    display:block;
+}
+ 
+.sub-menu li a:hover, .sub-menu .current-item a {
+    background:#3e3436;
+}
+/*This code is for footer of the page*/
+* {
+	margin: 0;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+	margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+	height: 142px; 
+}
+.site-footer {
+  background: orange;
+}
+/*This is for gradient division box with outer shadows*/
+.gradientBoxesWithOuterShadows {
+float:left;
+height: 300px;
+width: 350px; 
+padding: 50px;
+margin:40px;
+background-color:white; 
+text-align:center
+
+/* outer shadows  (note the rgba is red, green, blue, alpha) */
+-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
+-moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+/* rounded corners */
+-webkit-border-radius: 12px;
+-moz-border-radius: 7px; 
+border-radius: 7px;
+
+/* gradients */
+background: -webkit-gradient(linear, left top, left bottom, 
+color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5)); 
+background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); 
+}
+</style>
+<script type="text/javascript">
+      $(window).load(function(){
+        $("[data-toggle]").click(function() {
+          var toggle_el = $(this).data("toggle");
+          $(toggle_el).toggleClass("open-sidebar");
+        });
+         $(".swipe-area").swipe({
+              swipeStatus:function(event, phase, direction, distance, duration, fingers)
+                  {
+                      if (phase=="move" && direction =="right") {
+                           $(".container").addClass("open-sidebar");
+                           return false;
+                      }
+                      if (phase=="move" && direction =="left") {
+                           $(".container").removeClass("open-sidebar");
+                           return false;
+                      }
+                  }
+          }); 
+      });
+      
+    </script>
+</head>
+<body>
+<div class="topsection">
+<a href="index.html">
+<img src="images/logo.jpg" alt="Quizlet.com">
+</a>
+<h3>LEARN THE BASICS OF LANGUAGES</h3>
+</div>
+
+
+<div class="container">
+      <div id="sidebar">
+          <ul>
+              <li><a href="index.html">Home</a></li>
+			  <li><a href="wdc_index.html">Web Design</a></li>
+              <li><a href="sdc_index.html">Software Development</a></li>
+              <li><a href="nc_index.html">Networking</a></li>
+              <li><a href="c_index.html">C</a></li>
+              <li><a href="cpp_index.html">CPP</a></li>
+                  <li><a href="java_index.html">JAVA</a></li>
+				  <li><a href="quiz_index.html">QUIZ</a></li>
+          </ul>
+      </div>
+      <div class="main-content">
+          <div class="swipe-area"></div>
+          <a href="#" data-toggle=".container" id="sidebar-toggle">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </a>
+          <div class="content">
+              <div class="menu-wrap">
+    <nav class="menu">
+        <ul class="clearfix">
+            <li><a href="index.html">HOME</a></li>
+            <li>
+                <a href="wdc_index.html">Web Design<span class="arrow">&#9660;</span></a>
+ 
+                <ul class="sub-menu">
+                    <li><a href="html_index.html">HTML</a></li>
+                    <li><a href="css_index.html">CSS</a></li>
+                    <li><a href="js_index.html">JAVASCRIPT</a></li>
+                   
+                </ul>
+            </li>
+            <li><a href="sdc_index.html">Software Development<span class="arrow">&#9660;</span></a>
+		    <ul class="sub-menu">
+		    <li><a href="c_index.html">C</a></li>
+                    <li><a href="cpp_index.html">CPP</a></li>
+                    <li><a href="java_index.html">JAVA</a></li>
+          	    </ul>
+	    </li>
+            <li><a href="nc_index.html">Networking<span class="arrow">&#9660;</span></a>
+		    <ul class="sub-menu">
+		    <li><a href="ccna_index.html">CCNA Security</a></li>
+                    <li><a href="ccnp_index.html">CCNP Rounting & Switching</a></li>
+          	    </ul>
+	    </li>
+            <li><a href="quiz_index.html">QUIZ</a>
+		</li>
+		
+    </nav>
+</div>
+             <br><br><br>
+	  <div class="gradientBoxesWithOuterShadows">
+			<h1>C Course</h1>
+			<br><p>The C is the most widely used computer language, it keeps fluctuating at number one scale of popularity along with Java programming language, which is also equally popular and most widely used among modern software programmers.</p><br> 
+			<a href="c_index.html" class="w3-btn sectionbtn">LEARN C</a>
+	  </div>
+	  <div class="gradientBoxesWithOuterShadows">
+			<h1>CPP Course</h1>
+			<br><p>C++ is a middle-level programming language developed by Bjarne Stroustrup starting in 1979 at Bell Labs. C++ runs on a variety of platforms, such as Windows, Mac OS, and the various versions of UNIX.</p><br> 
+			<a href="cpp_index.html" class="w3-btn sectionbtn">LEARN CPP</a>
+	  </div>
+	   <div class="gradientBoxesWithOuterShadows">
+			<h1>JAVA Course</h1>
+			<br><p>Java is a high-level programming language originally developed by Sun Microsystems and released in 1995. Java runs on a variety of platforms, such as Windows, Mac OS, and the various versions of UNIX. This tutorial gives a complete understanding of Java.</p><br> 
+			<a href="java_index.html" class="w3-btn sectionbtn">LEARN JAVA</a>
+	  <div class="page-wrap">
+	  </div>
+	  <footer class="site-footer">
+		<a href="http://twitter.com/share" data-count="vertical" data-via="YourSite"><img border="0" alt="Twitter" src="images/twiiter1.png" width="30" height="30"></a>
+		<a href="http://facebook.com/share" data-count="vertical" data-via="YourSite"><img border="0" alt="Twitter" src="images/fb1.jpg" width="30" height="30"></a>
+		<a href="http://googleplus.com/share" data-count="vertical" data-via="YourSite"><img border="0" alt="Twitter" src="images/gp1.jpg" width="30" height="30"></a>
+	  </footer> 
+          </div>
+      </div>
+    </div>
+
+</body>
+</html>
